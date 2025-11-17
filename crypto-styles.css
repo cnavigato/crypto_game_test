@@ -1,0 +1,273 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    color: white;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+#crypto-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.crypto-card {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.crypto-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.symbol {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+.price-change {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+
+.price-change.positive {
+    background: #d4edda;
+    color: #155724;
+}
+
+.price-change.negative {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.change-icon {
+    font-size: 0.9rem;
+}
+
+.main-price {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 25px 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 12px;
+}
+
+.price-label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.price-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+}
+
+.price-details {
+    display: grid;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.detail-row .label {
+    font-weight: 500;
+    color: #6c757d;
+}
+
+.detail-row .value {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.detail-row .value.positive {
+    color: #28a745;
+}
+
+.detail-row .value.negative {
+    color: #dc3545;
+}
+
+.order-book {
+    margin: 20px 0;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 12px;
+}
+
+.bid-ask {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.bid, .ask {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.bid {
+    background: #d4edda;
+}
+
+.ask {
+    background: #f8d7da;
+}
+
+.bid .label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #155724;
+    font-weight: 600;
+}
+
+.ask .label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #721c24;
+    font-weight: 600;
+}
+
+.bid .price, .ask .price {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.bid .price {
+    color: #155724;
+}
+
+.ask .price {
+    color: #721c24;
+}
+
+.bid .qty, .ask .qty {
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+.volume-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.volume-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 12px;
+    background: #e9ecef;
+    border-radius: 8px;
+}
+
+.volume-item .label {
+    font-size: 0.8rem;
+    color: #6c757d;
+    font-weight: 500;
+}
+
+.volume-item .value {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+.card-footer {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #e9ecef;
+    text-align: center;
+}
+
+.timestamp {
+    font-size: 0.85rem;
+    color: #6c757d;
+}
+
+@media (max-width: 768px) {
+    #crypto-grid {
+        grid-template-columns: 1fr;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .price-value {
+        font-size: 2rem;
+    }
+
+    .symbol {
+        font-size: 1.5rem;
+    }
+}

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Price Tracker</title>
+    <link rel="stylesheet" href="crypto-styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Cryptocurrency Price Tracker</h1>
+            <p class="subtitle">Real-time market data</p>
+        </header>
+
+        <div id="crypto-grid"></div>
+    </div>
+
+    <script>
+        // Sample data array
+        const cryptoData = [
+            {
+                "symbol": "BTCUSDT",
+                "priceChange": "-1045.65",
+                "priceChangePercent": "-0.01",
+                "prevClosePrice": "103873.82",
+                "lastPrice": "102828.17",
+                "bidPrice": "102965.23",
+                "bidQty": "0.94168",
+                "askPrice": "102975.9",
+                "askQty": "0.09753",
+                "openPrice": "103873.82",
+                "highPrice": "104069.08",
+                "lowPrice": "100816.71",
+                "volume": "10826.11403714",
+                "quoteVolume": "1108936746.66",
+                "openTime": 1763046897031,
+                "closeTime": 1763046908091,
+                "count": null
+            },
+            {
+                "symbol": "ETHUSDT",
+                "priceChange": "45.32",
+                "priceChangePercent": "2.15",
+                "prevClosePrice": "2108.45",
+                "lastPrice": "2153.77",
+                "bidPrice": "2152.80",
+                "bidQty": "5.234",
+                "askPrice": "2154.20",
+                "askQty": "3.567",
+                "openPrice": "2108.45",
+                "highPrice": "2165.90",
+                "lowPrice": "2095.30",
+                "volume": "45632.789",
+                "quoteVolume": "97654321.50",
+                "openTime": 1763046897031,
+                "closeTime": 1763046908091,
+                "count": null
+            },
+            {
+                "symbol": "aMPLW R",
+                "priceChange": "-1045.65",
+                "priceChangePercent": "-0.01",
+                "prevClosePrice": "103873.82",
+                "lastPrice": "102828.17",
+                "bidPrice": "102965.23",
+                "bidQty": "0.94168",
+                "askPrice": "102975.9",
+                "askQty": "0.09753",
+                "openPrice": "103873.82",
+                "highPrice": "104069.08",
+                "lowPrice": "100816.71",
+                "volume": "10826.11403714",
+                "quoteVolume": "1108936746.66",
+                "openTime": 1763046897031,
+                "closeTime": 1763046908091,
+                "count": null
+            },
+            {
+                "symbol": "RNdowdo",
+                "priceChange": "45.32",
+                "priceChangePercent": "2.15",
+                "prevClosePrice": "2108.45",
+                "lastPrice": "2153.77",
+                "bidPrice": "2152.80",
+                "bidQty": "5.234",
+                "askPrice": "2154.20",
+                "askQty": "3.567",
+                "openPrice": "2108.45",
+                "highPrice": "2165.90",
+                "lowPrice": "2095.30",
+                "volume": "45632.789",
+                "quoteVolume": "97654321.50",
+                "openTime": 1763046897031,
+                "closeTime": 1763046908091,
+                "count": null
+            },
+            {
+                "symbol": "BTCUSDT",
+                "priceChange": "-1045.65",
+                "priceChangePercent": "-0.01",
+                "prevClosePrice": "103873.82",
+                "lastPrice": "102828.17",
+                "bidPrice": "102965.23",
+                "bidQty": "0.94168",
+                "askPrice": "102975.9",
+                "askQty": "0.09753",
+                "openPrice": "103873.82",
+                "highPrice": "104069.08",
+                "lowPrice": "100816.71",
+                "volume": "10826.11403714",
+                "quoteVolume": "1108936746.66",
+                "openTime": 1763046897031,
+                "closeTime": 1763046908091,
+                "count": null
+            },
+            {
+                "symbol": "ETHUSDT",
+                "priceChange": "45.32",
+                "priceChangePercent": "2.15",
+                "prevClosePrice": "2108.45",
+                "lastPrice": "2153.77",
+                "bidPrice": "2152.80",
+                "bidQty": "5.234",
+                "askPrice": "2154.20",
+                "askQty": "3.567",
+                "openPrice": "2108.45",
+                "highPrice": "2165.90",
+                "lowPrice": "2095.30",
+                "volume": "45632.789",
+                "quoteVolume": "97654321.50",
+                "openTime": 1763046897031,
+                "closeTime": 1763046908091,
+                "count": null
+            },
+            {
+                "symbol": "aMPLW R",
+                "priceChange": "-1045.65",
+                "priceChangePercent": "-0.01",
+                "prevClosePrice": "103873.82",
+                "lastPrice": "102828.17",
+                "bidPrice": "102965.23",
+                "bidQty": "0.94168",
+                "askPrice": "102975.9",
+                "askQty": "0.09753",
+                "openPrice": "103873.82",
+                "highPrice": "104069.08",
+                "lowPrice": "100816.71",
+                "volume": "10826.11403714",
+                "quoteVolume": "1108936746.66",
+                "openTime": 1763046897031,
+                "closeTime": 1763046908091,
+                "count": null
+            },
+            {
+                "symbol": "RNdowdo",
+                "priceChange": "45.32",
+                "priceChangePercent": "2.15",
+                "prevClosePrice": "2108.45",
+                "lastPrice": "2153.77",
+                "bidPrice": "2152.80",
+                "bidQty": "5.234",
+                "askPrice": "2154.20",
+                "askQty": "3.567",
+                "openPrice": "2108.45",
+                "highPrice": "2165.90",
+                "lowPrice": "2095.30",
+                "volume": "45632.789",
+                "quoteVolume": "97654321.50",
+                "openTime": 1763046897031,
+                "closeTime": 1763046908091,
+                "count": null
+            }
+        ];
+
+        function formatNumber(num, decimals = 2) {
+            return parseFloat(num).toLocaleString('en-US', {
+                minimumFractionDigits: decimals,
+                maximumFractionDigits: decimals
+            });
+        }
+
+        function formatVolume(num) {
+            const value = parseFloat(num);
+            if (value >= 1e9) return (value / 1e9).toFixed(2) + 'B';
+            if (value >= 1e6) return (value / 1e6).toFixed(2) + 'M';
+            if (value >= 1e3) return (value / 1e3).toFixed(2) + 'K';
+            return value.toFixed(2);
+        }
+
+        function formatTime(timestamp) {
+            return new Date(timestamp).toLocaleString('en-US', {
+                month: 'short',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+        }
+
+        function createCryptoCard(data) {
+            const priceChange = parseFloat(data.priceChange);
+            const priceChangePercent = parseFloat(data.priceChangePercent);
+            const isPositive = priceChange >= 0;
+            const changeClass = isPositive ? 'positive' : 'negative';
+            const changeIcon = isPositive ? '▲' : '▼';
+
+            return `
+                <div class="crypto-card">
+                    <div class="card-header">
+                        <h2 class="symbol">${data.symbol}</h2>
+                        <div class="price-change ${changeClass}">
+                            <span class="change-icon">${changeIcon}</span>
+                            <span>${priceChangePercent}%</span>
+                        </div>
+                    </div>
+
+                    <div class="main-price">
+                        <span class="price-label">Current Price</span>
+                        <span class="price-value">$${formatNumber(data.lastPrice)}</span>
+                    </div>
+
+                    <div class="price-details">
+                        <div class="detail-row">
+                            <span class="label">24h Change:</span>
+                            <span class="value ${changeClass}">
+                                ${isPositive ? '+' : ''}$${formatNumber(Math.abs(priceChange))}
+                            </span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label">Open:</span>
+                            <span class="value">$${formatNumber(data.openPrice)}</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label">High:</span>
+                            <span class="value">$${formatNumber(data.highPrice)}</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label">Low:</span>
+                            <span class="value">$${formatNumber(data.lowPrice)}</span>
+                        </div>
+                    </div>
+
+                    <div class="order-book">
+                        <div class="bid-ask">
+                            <div class="bid">
+                                <span class="label">Bid</span>
+                                <span class="price">$${formatNumber(data.bidPrice)}</span>
+                                <span class="qty">${formatNumber(data.bidQty, 5)}</span>
+                            </div>
+                            <div class="ask">
+                                <span class="label">Ask</span>
+                                <span class="price">$${formatNumber(data.askPrice)}</span>
+                                <span class="qty">${formatNumber(data.askQty, 5)}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="volume-info">
+                        <div class="volume-item">
+                            <span class="label">Volume:</span>
+                            <span class="value">${formatVolume(data.volume)}</span>
+                        </div>
+                        <div class="volume-item">
+                            <span class="label">Quote Volume:</span>
+                            <span class="value">$${formatVolume(data.quoteVolume)}</span>
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <span class="timestamp">Updated: ${formatTime(data.closeTime)}</span>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderCryptoData() {
+            const grid = document.getElementById('crypto-grid');
+            grid.innerHTML = cryptoData.map(createCryptoCard).join('');
+        }
+
+        // Render on page load
+        renderCryptoData();
+    </script>
+</body>
+</html>
